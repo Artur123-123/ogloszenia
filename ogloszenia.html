@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styl5.css">
+    <title>Portal ogłoszeniowy</title>
+</head>
+<body>
+    <section id="baner">
+        <h1>Portal Ogłoszeniowy</h1>
+    </section>
+    <section id="info">
+        <div id="fir">
+            <img src="a1.png" alt=""></div>
+        <div id="sec">
+            <h3>Adres</h3>
+            <p>ul. Morska 45 Gdynia</p>
+        </div>
+        <div id="thi">
+            <h3>telefon</h3>
+            <p>601601601</p>
+        </div>
+        <div id="fou">
+            <h3>e-mail</h3>
+            <p>ogloszenia@poczta.pl</p>
+        </div>
+    </section>
+    <section>
+        <div id="lewy">
+            <h2>Ceny ogłoszeń</h2>
+            <table>
+                <tr>
+                    <td>Liczba ogłoszeń</td>
+                    <td>Cena ogłoszenia</td>
+                    <td>Bonus</td>
+                </tr>
+                <tr>
+                    <td>1 - 50</td>
+                    <td>2 PLN</td>
+                    <td rowspan="4">Subskrypcja newslettera to upust 0,20 PLN na ogłoszenie</td>
+                </tr>
+                <tr>
+                    <td>51 i więcej</td>
+                    <td>1 PLN</td>
+                </tr>
+            </table>
+        </div>
+        <div id="srodkowy">
+            <h2>Witamy na stronie naszego portalu!</h2>
+            <img src="logo-duzee.png" alt="ogłoszenia">
+        </div>
+        <div id="prawy">
+            <h2>Ile kosztuje ogłoszenie?</h2>
+            <br>
+            Podaj liczbę ogłoszeń: <br><input type="number" name="" id="liczba">
+            <br>
+            <input type="checkbox" name="" id="checkbox">Policz upust na newsletter
+            <br>
+            <button onclick="oblicz(value)">Oblicz</button>
+            <p id="wynik"></p>
+        </div>
+    </section>
+    <footer>Portal ogłoszeniowy opracował: 101010101010</footer>
+    <script>
+        function oblicz(){
+            let liczba = Number(document.getElementById('liczba').value)
+            let wynik = document.getElementById('wynik')
+            let checkbox = document.getElementById('checkbox').checked
+            let koszt = 0
+            if(checkbox){
+                if(liczba > 0 || liczba <= 50){
+                    koszt = liczba * (0.20 + 2)
+                }
+                if(liczba >= 51)
+                    koszt = liczba * (0.20 + 1)
+            }
+            else{
+                if(liczba > 0 || liczba <= 50){
+                    koszt = liczba * 2
+
+                }
+                if(liczba >= 51)
+                    koszt = liczba * 1    
+            }
+            wynik.innerHTML='Koszt ogłoszeń: '+parseFloat(koszt.toFixed(2))+' PLN'
+        }
+    </script>
+</body>
+</html>
